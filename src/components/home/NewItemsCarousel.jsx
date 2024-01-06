@@ -1,15 +1,12 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import { BsChevronLeft } from "react-icons/bs";
 import Newitem from "./NewItem.jsx"
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import CountdownTimer from "./CountdownTimer";
-import NewItem from "./NewItem";
-// col-lg-3 col-md-6 col-sm-6 col-xs-12
+
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -45,24 +42,6 @@ function SamplePrevArrow(props) {
 
 const Carousel = ({ collections }) => {
   {
-    const stylesImg = {
-      width: "100%",
-      height: "200px",
-    };
-    const stylesPfp = {
-      width: "50px",
-      height: "50px",
-      borderRadius: "50%",
-    };
-    const stylesTitle = {
-      width: "100px",
-      height: "20px",
-    };
-
-    const stylesText = {
-      width: "60px",
-      height: "20px",
-    };
     const [collections, setCollections] = useState();
     const [loading, setLoading] = useState([]);
     async function fetchPosts(userId) {
@@ -132,8 +111,6 @@ const Carousel = ({ collections }) => {
                       </Link>
                     </div>
                     <div className="de_countdown">
-                      {/* <CountdownTimer targetTime={collection.expiryDate} /> */}
-                      {/* 5h 30m 32s{CountdownTimer(collection.expiryDate)} */}
                     </div>
 
                     <div className="nft__item_wrap">
@@ -142,13 +119,13 @@ const Carousel = ({ collections }) => {
                           <button>Buy Now</button>
                           <div className="nft__item_share">
                             <h4>Share</h4>
-                            <a href="" target="_blank" rel="noreferrer">
+                            <a href="#" target="_blank" rel="noreferrer">
                               <i className="fa fa-facebook fa-lg"></i>
                             </a>
-                            <a href="" target="_blank" rel="noreferrer">
+                            <a href="#" target="_blank" rel="noreferrer">
                               <i className="fa fa-twitter fa-lg"></i>
                             </a>
-                            <a href="">
+                            <a href="#">
                               <i className="fa fa-envelope fa-lg"></i>
                             </a>
                           </div>

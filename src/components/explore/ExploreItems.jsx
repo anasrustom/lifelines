@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import CountdownTimer from "../home/CountdownTimer.jsx";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import NewItem from "../home/NewItem.jsx";
 
 const ExploreItems = () => {
@@ -20,12 +17,12 @@ const ExploreItems = () => {
 
   useEffect(() => {
     async function getData() {
-      // console.log("OPTION" + option);
+
       if (option == "price_low_to_high") {
         data = await axios.get(
           "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=price_low_to_high"
         );
-      } else if (option == "price_high_to_low") {
+      } else if (option === "price_high_to_low") {
         data = await axios.get(
           "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=price_high_to_low"
         );

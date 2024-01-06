@@ -1,12 +1,10 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import { BsChevronLeft } from "react-icons/bs";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// col-lg-3 col-md-6 col-sm-6 col-xs-12
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;

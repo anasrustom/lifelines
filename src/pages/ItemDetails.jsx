@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
-import nftImage from "../images/nftImage.jpg";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const ItemDetails = () => {
@@ -52,7 +50,7 @@ const ItemDetails = () => {
       setLoading(false);
     }
     getData();
-  }, []);
+  }, [id]);
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">

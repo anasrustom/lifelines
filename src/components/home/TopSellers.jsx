@@ -16,15 +16,7 @@ const TopSellers = () => {
     }
     getData();
   }, []);
-  // async function fetchPosts(userId) {
-  //   const { data } = await axios.get(
-  //     "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
-  //   );
-  //   setCollections(data);
-  //   setLoading(false);
-  //   console.log(collections);
-  // }
-  // fetchPosts();
+
   return (
     <section id="section-popular" className="pb-5">
       <div className="container" data-aos="fade-up"> 
