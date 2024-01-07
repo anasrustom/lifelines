@@ -12,7 +12,6 @@ const Author = () => {
   const { id } = useParams();
   function followUser() {
     setFollow((prev) => !prev);
-    console.log(follow);
   }
   async function fetchPosts() {
     const { data } = await axios.get(
@@ -20,7 +19,6 @@ const Author = () => {
     );
     setAuthor(data);
     setLoading(true);
-    console.log(author);
     setFollowers(author.followers + 1);
   }
   fetchPosts();

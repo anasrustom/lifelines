@@ -8,9 +8,7 @@ const ExploreItems = () => {
   let data = [0];
   const [option, setOption] = useState("");
   const showMore = () => {
-    console.log(slice);
     setSlice((prev) => prev + 4);
-    console.log(slice);
   };
   const [loading, setLoading] = useState([]);
   const [collections, setCollections] = useState();
@@ -35,7 +33,6 @@ const ExploreItems = () => {
           "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
         );
       }
-      console.log(data.data);
       setCollections(data.data);
       setLoading(false);
     }
