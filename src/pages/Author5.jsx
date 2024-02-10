@@ -1,31 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
-import AuthorItems from "../components/author/AuthorItems";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import author1 from "../images/author5.jpg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckToSlot } from '@fortawesome/free-solid-svg-icons';
 
 const Author = () => {
-  const [author, setAuthor] = useState();
-  const [loading, setLoading] = useState();
   const [follow, setFollow] = useState(false);
-  const [followers, setFollowers] = useState(0);
-  const { id } = useParams();
+  const [followers, setFollowers] = useState(1168);
   function followUser() {
     setFollow((prev) => !prev);
   }
-  async function fetchPosts() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
-    );
-    setAuthor(data);
-    setLoading(true);
-    setFollowers(author.followers + 1);
-  }
-  fetchPosts();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div id="wrapper">
-      {loading && (
         <div className="no-bottom no-top" id="content">
           <div id="top"></div>
 
@@ -44,32 +35,32 @@ const Author = () => {
                   <div className="d_profile de-flex">
                     <div className="de-flex-col">
                       <div className="profile_avatar">
-                        <img src={author.authorImage} alt="" />
+                        <img src={author1} alt="" />
 
                         <i className="fa fa-check"></i>
                         <div className="profile_name">
                           <h4>
-                            {author.authorName}
+                          Morgan Davis
                             <span className="profile_username">
-                              {author.tag}
+                              @morgand
                             </span>
-                            <span id="wallet" className="profile_wallet">
-                              {author.address}
+                            <span className="TIP">
+                            <FontAwesomeIcon icon={faCheckToSlot} className="checkslot"/>
+                              Total Integrity Points: <span style={{color: 'gold'}}>427</span>
                             </span>
-                            <button id="btn_copy" title="Copy Text">
-                              Copy
-                            </button>
                           </h4>
                         </div>
+                        
                       </div>
+                      
                     </div>
                     <div className="profile_follow de-flex">
                       <div className="de-flex-col">
                         <div className="profile_follower">
                           {follow ? (
-                            <>{followers} </>
+                            <>{followers + 1} </>
                           ) : (
-                            <> {author.followers} </>
+                            <> {followers} </>
                           )}
                           followers
                         </div>
@@ -80,20 +71,12 @@ const Author = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="col-md-12">
-                  <div className="de_tab tab_simple">
-                    <AuthorItems
-                      collection={author.nftCollection}
-                      authorImage={author.authorImage}
-                    />
-                  </div>
-                </div>
+                <h5 className="boopboop">Morgan Davis (@morgand), with a certification in Journalism from a renowned university, is known for their in-depth analysis and credible reporting in the field.</h5>
               </div>
             </div>
           </section>
         </div>
-      )}
+      
     </div>
   );
 };
